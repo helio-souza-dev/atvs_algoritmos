@@ -3,6 +3,7 @@ class Peca:
     def __init__(self, casa_padrao, cor):
         self.tipo = self.__class__.__name__
         self.casa_padrao = casa_padrao
+        self.posicao_atual = casa_padrao
         self.cor = cor
     
     def __str__(self):
