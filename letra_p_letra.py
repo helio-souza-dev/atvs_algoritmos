@@ -16,7 +16,9 @@ def escrever(texto, delay):
 rodando = True
 while rodando:
     textos = []
+    
     quantidade = int(input("Quantos textos deseja escrever? "))
+    
     for q in range(quantidade):
             texto = input("Digite o texto que deseja escrever: ")
             delay = float(input("Digite o delay entre as letras (em segundos): "))
@@ -33,14 +35,14 @@ while rodando:
         resposta = input("\nDeseja escrever mais um texto? (s/n): ")
         
         if resposta == 's':
-            continue
+            break
 
         elif resposta == 'n':
             
-            escrever("Saindo do programa...", 0.1)
+            escrever("Saindo do programa...", 0.05)
             rodando = False
             break
         
         else:
-            print("resposta invalida")
+            escrever("resposta invalida", 0.01)
             continue
