@@ -13,8 +13,8 @@ def escrever(texto, delay):
         print(cores[i % len(cores)] + letra, end='', flush=True)
         time.sleep(delay)
     
-
-while True:
+rodando = True
+while rodando:
     textos = []
     quantidade = int(input("Quantos textos deseja escrever? "))
     for q in range(quantidade):
@@ -25,17 +25,22 @@ while True:
             
     for texto, delay in textos:
         escrever(texto, delay)
-
-    resposta = input("\nDeseja escrever mais um texto? (s/n): ")
-    if resposta == 's':
-        quantidade += 1
-        continue
-    elif resposta == 'n':
-        escrever("Saindo do programa...", 0.1)
-        break
-    else:
-        print("resposta invalida")
-        continue
+        
+    resposta = ""
     
+    
+    while resposta != 'n' or resposta != 's':
+        resposta = input("\nDeseja escrever mais um texto? (s/n): ")
+        
+        if resposta == 's':
+            continue
 
-
+        elif resposta == 'n':
+            
+            escrever("Saindo do programa...", 0.1)
+            rodando = False
+            break
+        
+        else:
+            print("resposta invalida")
+            continue
